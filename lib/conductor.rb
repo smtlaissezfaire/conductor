@@ -1,4 +1,6 @@
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'forwardable'
+require "conductor/parser"
 
 class Conductor
   extend Forwardable
