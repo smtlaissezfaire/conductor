@@ -1,5 +1,5 @@
 class Conductor
-  module ActiveRecordAttributeParser
+  module AttributeParser
     def self.parse(str)
       Parser.parse(str)
     end

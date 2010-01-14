@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'forwardable'
-require "conductor/parser"
+require "conductor/attribute_parser"
 
 class Conductor
   extend Forwardable
@@ -90,6 +90,6 @@ private
   end
 
   def parse_params(params)
-    ActiveRecordAttributeParser.parse(params)
+    AttributeParser.parse(params)
   end
 end

@@ -1,10 +1,10 @@
 require "spec_helper"
 
 class Conductor
-  describe ActiveRecordAttributeParser do
+  describe AttributeParser do
     describe "parsing with a hash" do
       before do
-        @parser = ActiveRecordAttributeParser
+        @parser = AttributeParser
       end
 
       it "should return a typical key-value pair unchanged" do
