@@ -1,5 +1,15 @@
+require 'forwardable'
+
 class Conductor
   extend Forwardable
+
+  module Version
+    MAJOR = 0
+    MINOR = 0
+    TINY  = 0
+
+    STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
+  end
 
   class << self
     def conduct(obj, *fields)
@@ -8,7 +18,7 @@ class Conductor
         def_delegator obj, "#{field}="
       end
     end
-    
+
     def conduct_date(obj, field)
       def_delegator obj, field
       define_method "#{field}=" do |params|
@@ -76,7 +86,7 @@ private
       end
     end
   end
-  
+
   def parse_params(params)
     ActiveRecordAttributeParser.parse(params)
   end
