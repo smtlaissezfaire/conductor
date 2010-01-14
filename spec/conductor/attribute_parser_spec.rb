@@ -4,7 +4,7 @@ class Conductor
   describe AttributeParser do
     describe "parsing with a hash" do
       before do
-        @parser = AttributeParser
+        @parser = AttributeParser.new
       end
 
       it "should return a typical key-value pair unchanged" do
