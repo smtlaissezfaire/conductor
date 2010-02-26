@@ -23,13 +23,16 @@ class Conductor
 
     def conduct_date(obj, field)
       def_delegator obj, field
+
       define_method "#{field}=" do |params|
         begin
-          if date = Date.new(*params)
-            send(obj).send("#{field}=", date)
-          end
+          params = Array(params)
+          date = Date.parse(params.join("-"))
         rescue ArgumentError
+          date = nil
         end
+
+        send(obj).send("#{field}=", date)
       end
     end
   end
