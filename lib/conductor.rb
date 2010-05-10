@@ -21,6 +21,13 @@ class Conductor
       end
     end
 
+    def conduct_with_prefix(name, *fields)
+      fields.each do |field|
+        def_delegator name, field,       "#{name}_#{field}"
+        def_delegator name, "#{field}=", "#{name}_#{field}="
+      end
+    end
+
     def conduct_date(obj, field)
       def_delegator obj, field
 
